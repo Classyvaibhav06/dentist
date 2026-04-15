@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -211,24 +211,27 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   position: relative;
 }
 .hero-card-img {
-  width: 100%; height: 320px;
-  background: linear-gradient(135deg, #0e9e8e 0%, #1a5cff 100%);
+  width: 100%; height: 360px;
   position: relative;
-  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
-.hero-svg-tooth {
-  opacity: 0.15;
-  animation: floatTooth 6s ease-in-out infinite;
+.hero-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform .5s ease;
 }
-@keyframes floatTooth {
-  0%,100% { transform: translateY(0px) rotate(-5deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+.hero-card-main:hover .hero-card-img img {
+  transform: scale(1.04);
 }
-.hero-tooth-center {
-  position: absolute;
-  animation: floatTooth 5s ease-in-out infinite;
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(14,158,142,0.55) 100%);
+  pointer-events: none;
 }
+.hero-svg-tooth { display: none; }
+.hero-tooth-center { display: none; }
 
 .hero-card-body {
   padding: 24px;
@@ -739,18 +742,11 @@ footer {
   <div class="hero-visual reveal reveal-delay-2">
     <div class="hero-card-main">
       <div class="hero-card-img">
-        <!-- Decorative dental SVG illustration -->
-        <svg class="hero-svg-tooth" width="220" height="220" viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 5C38 5 28 12 25 23c-2 7-2 14 0 20C22 48 20 56 20 63c0 17 12 30 21 37l3 2c2 1.5 5 1.5 7 0l3-2c9-7 21-20 21-37 0-7-2-15-5-20 2-6 2-13 0-20C67 12 62 5 50 5z"/>
-        </svg>
-        <div class="hero-tooth-center">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C9.5 2 7.5 3.5 7 5.5c-.3 1-.3 2 0 3C6.5 10 6 11.5 6 13c0 3.3 2 6 4 8l.5.5c.3.3.8.3 1.1 0L12 21l.5.5c.3.3.8.3 1.1 0l.4-.5c2-2 4-4.7 4-8 0-1.5-.5-3-1-4.5.3-1 .3-2 0-3C16.5 3.5 14.5 2 12 2z"/>
-          </svg>
-        </div>
-        <div style="position:absolute;bottom:20px;left:0;right:0;text-align:center;">
-          <div style="font-size:13px;color:rgba(255,255,255,0.7);font-family:var(--font-body);">Patel Dental Care & Implant Centre</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:var(--font-body);">Khurai, Madhya Pradesh</div>
+        <img src="doctor.png" alt="Dr. Patel - Best Dentist in Khurai" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" />
+        <div class="hero-img-overlay"></div>
+        <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;z-index:2;">
+          <div style="font-size:13px;color:rgba(255,255,255,0.95);font-family:var(--font-body);font-weight:600;">Dr. Patel &ndash; BDS, MDS</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.75);font-family:var(--font-body);">Patel Dental Care &amp; Implant Centre, Khurai</div>
         </div>
       </div>
       <div class="hero-card-body">
@@ -786,21 +782,18 @@ footer {
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-visual reveal">
-      <div class="about-card">
-        <div class="about-big-num">4.9</div>
-        <div class="about-big-label">★ Google Rating</div>
-        <div class="about-pills">
-          <div class="about-pill"><span class="about-pill-icon">🏆</span> Khurai's #1 Rated Dental Clinic</div>
-          <div class="about-pill"><span class="about-pill-icon">🔬</span> State-of-the-Art Technology</div>
-          <div class="about-pill"><span class="about-pill-icon">💚</span> Painless & Comfortable Care</div>
-          <div class="about-pill"><span class="about-pill-icon">📍</span> Near SBI ATM, Tagore Ward</div>
+      <div class="about-photo-wrap">
+        <img src="brave_screenshot_www.google.com.png" alt="Dr. Patel treating a patient" class="about-photo" />
+        <div class="about-photo-gradient"></div>
+        <div class="about-photo-top-badge">
+          <span>&#127942;</span> Khurai's #1 Dental Clinic
         </div>
-      </div>
-      <div class="about-floating">
-        <div class="about-floating-icon">⭐</div>
-        <div>
-          <strong>40+ Reviews</strong>
-          <span>All 5-star patients</span>
+        <div class="about-floating">
+          <div class="about-floating-icon">&#11088;</div>
+          <div>
+            <strong>4.9 Rating</strong>
+            <span>40+ patient reviews</span>
+          </div>
         </div>
       </div>
     </div>
